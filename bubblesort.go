@@ -2,15 +2,16 @@ package udemyproblems
 
 import "fmt"
 
-//BubbleSort sorts the given array using bubble sort algorithm
+//BubbleSort sorts the given array
 func BubbleSort(array []int) {
 
 	bound := len(array)
-	t := 0
+	t := bound
 
-	for bound > 1 {
+	for t > 1 {
 
 		fmt.Println("Start Loop")
+		t = 0
 
 		for j := 0; j < (bound - 1); j++ {
 
@@ -30,7 +31,6 @@ func BubbleSort(array []int) {
 			break
 		} else {
 			bound = t + 1
-			t = 0
 		}
 
 		fmt.Println("bound = ", bound)
