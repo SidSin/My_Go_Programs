@@ -8,7 +8,7 @@ func BubbleSort(array []int) {
 	bound := len(array)
 	t := bound
 
-	for t > 1 {
+	for t > 0 {
 
 		fmt.Println("Start Loop")
 		t = 0
