@@ -11,7 +11,11 @@ func BubbleSort(array []int) {
 	for t > 0 {
 
 		fmt.Println("Start Loop")
-		t = 0
+		// this indicates no swap has happened so far
+		// t = 0 in program means swap happened when
+		// very fist element is greater than second
+		// and rest of the array is sorted
+		t = -1
 
 		for j := 0; j < (bound - 1); j++ {
 
