@@ -2,7 +2,7 @@ package udemyproblems
 
 import "fmt"
 
-//BubbleSort sorts the given array
+//BubbleSort sorts the given array using bubble sort algorithm
 func BubbleSort(array []int) {
 
 	bound := len(array)
