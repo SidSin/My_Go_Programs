@@ -31,7 +31,7 @@ func BubbleSort(array []int) {
 
 		fmt.Println("t = ", t)
 
-		if t == 0 {
+		if t == -1 {
 			break
 		} else {
 			bound = t + 1
