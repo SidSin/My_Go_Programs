@@ -58,6 +58,5 @@ func (L *LinkedList) AddatEnd(Value int) {
 
 	//move the tail to point to newnode
 	L.tail = &newnode
-	//fmt.Println("Tail = ", L.tail)
 
 }
