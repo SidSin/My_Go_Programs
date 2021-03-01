@@ -2,7 +2,7 @@ package udemyproblems
 
 import "fmt"
 
-//Node of a singly linked lisr
+//Node of a singly linked list
 type Node struct {
 	value int
 	next  *Node
