@@ -2,6 +2,15 @@ package udemyproblems
 
 import "fmt"
 
+/*
+
+-- AddatFront      -- O(1)
+-- AddatEnd        -- O(1)
+
+-- RemoveFromFront -- O(1)
+-- RemoveFromEnd   -- O(N)
+
+*/
 //Node of a singly linked list
 type Node struct {
 	value int
@@ -76,10 +85,5 @@ func (L *LinkedList) RemoveFromFront() {
 		if L.head == nil {
 			L.tail = nil
 		}
-
-
-	} else {
-		fmt.Println("Linked List is empty no nodes to remove")
 	}
-
 }
