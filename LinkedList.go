@@ -60,3 +60,26 @@ func (L *LinkedList) AddatEnd(Value int) {
 	L.tail = &newnode
 
 }
+
+//RemoveFromFront removes the node pointed by the head
+func (L *LinkedList) RemoveFromFront() {
+
+	if !(L.IsLinkedListEmpty()) {
+
+		currentnode := L.head
+		//move head forward
+		L.head = L.head.next
+		currentnode.next = nil
+		
+		//fmt.Println("Removed node with value = ", currentnode.value)
+
+		if L.head == nil {
+			L.tail = nil
+		}
+
+
+	} else {
+		fmt.Println("Linked List is empty no nodes to remove")
+	}
+
+}
