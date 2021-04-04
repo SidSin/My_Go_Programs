@@ -114,14 +114,12 @@ func placefourthqueen(b [][]int) {
 			b[r4][3] = 0
 		}
 	}
-
 }
 
 func placethirdqueen(b [][]int) {
 
 	for r3 := 0; r3 < 4; r3++ {
 		//place queen on column 3
-		//fmt.Println(fourspaces2, fourspaces2, "Placing 3rd Queen on ", r3, " - ", 1)
 		b[r3][2] = 1
 
 		if allowed(b, r3, 2) {
@@ -130,14 +128,12 @@ func placethirdqueen(b [][]int) {
 			b[r3][2] = 0
 		}
 	}
-
 }
 
 func placesecondqueen(board [][]int) {
 
 	for r := 0; r < len(board); r++ {
 		//place q on column 2
-		fmt.Println(fourspaces, "Placing 2nd Queen on ", r, " - ", 1)
 		board[r][1] = 1
 		if allowed(board, r, 1) {
 
@@ -147,7 +143,6 @@ func placesecondqueen(board [][]int) {
 			board[r][1] = 0
 		}
 	}
-
 }
 
 //Givefourqueensposition gives position of each of the four queens
@@ -158,10 +153,7 @@ func Givefourqueensposition() {
 	for r := 0; r < N; r++ {
 		//place q on col 1
 		var board = [][]int{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}
-		fmt.Println("********")
-		printboard(board)
-
-		fmt.Println("Placing 1st Queen on ", r, " - ", 0)
+		
 		board[r][0] = 1
 		placesecondqueen(board)
 		board[r][0] = 0
