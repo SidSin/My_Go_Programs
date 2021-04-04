@@ -151,9 +151,9 @@ func Givefourqueensposition() {
 	N := 4
 
 	for r := 0; r < N; r++ {
-		//place q on col 1
 		var board = [][]int{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}
 		
+		//place q on col 1
 		board[r][0] = 1
 		placesecondqueen(board)
 		board[r][0] = 0
