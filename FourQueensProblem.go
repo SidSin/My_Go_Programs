@@ -99,6 +99,22 @@ func checkrowallowed(board [4][4]int, newqueenrowpos int, answer bool) bool {
 	return answer
 }
 
+func placefourthqueen(b [4][4]int) {
+
+	for r4 := 0; r4 < 4; r4++ {
+		//place queen on column 4
+		b[r4][3] = 1
+
+		if allowed(b, r4, 3) {
+			printboard(b)
+			fmt.Println(" ")
+		} else {
+			b[r4][3] = 0
+		}
+	}
+
+}
+
 func placethirdqueen(b [4][4]int) {
 
 	for r3 := 0; r3 < 4; r3++ {
@@ -106,8 +122,7 @@ func placethirdqueen(b [4][4]int) {
 		b[r3][2] = 1
 
 		if allowed(b, r3, 2) {
-			printboard(b)
-			fmt.Println(" ")
+			placefourthqueen(b)
 		} else {
 			b[r3][2] = 0
 		}
@@ -139,8 +154,6 @@ func Givefourqueensposition() {
 	var board = [4][4]int{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}
 
 	for r := 0; r < N; r++ {
-		fmt.Println("--------")
-
 		//place q on col 1
 		board[r][0] = 1
 		placesecondqueen(board)
