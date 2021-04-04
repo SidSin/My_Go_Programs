@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+var fourspaces = "    "
+
 func abs(v1 int, v2 int) int {
 
 	absolutevalue := 0
@@ -16,7 +18,7 @@ func abs(v1 int, v2 int) int {
 	return absolutevalue
 }
 
-func printrow(B [4][4]int, rownum int) {
+func printrow(B [][]int, rownum int) {
 
 	for i := 0; i < len(B); i++ {
 		fmt.Print(B[rownum][i], " ")
@@ -25,7 +27,7 @@ func printrow(B [4][4]int, rownum int) {
 	fmt.Println("")
 }
 
-func printboard(B [4][4]int) {
+func printboard(B [][]int) {
 
 	printrow(B, 0)
 	printrow(B, 1)
@@ -33,7 +35,7 @@ func printboard(B [4][4]int) {
 	printrow(B, 3)
 }
 
-func allowed(board [4][4]int, newqueenrowpos int, newqueencolpos int) bool {
+func allowed(board [][]int, newqueenrowpos int, newqueencolpos int) bool {
 
 	answer := true
 	answer = checkrowallowed(board, newqueenrowpos, answer)
@@ -48,7 +50,7 @@ func allowed(board [4][4]int, newqueenrowpos int, newqueencolpos int) bool {
 	return answer
 }
 
-func checkcdiagonalallowed(board [4][4]int, newqueenrpos int, newqueencpos int, answer bool) bool {
+func checkcdiagonalallowed(board [][]int, newqueenrpos int, newqueencpos int, answer bool) bool {
 	qcount := 0
 
 	for i := 0; i < len(board); i++ {
@@ -70,7 +72,7 @@ func checkcdiagonalallowed(board [4][4]int, newqueenrpos int, newqueencpos int, 
 	return answer
 }
 
-func checkcolumnallowed(board [4][4]int, newqueenxpos int, answer bool) bool {
+func checkcolumnallowed(board [][]int, newqueenxpos int, answer bool) bool {
 	qcount := 0
 
 	for i := 0; i < len(board); i++ {
@@ -84,7 +86,7 @@ func checkcolumnallowed(board [4][4]int, newqueenxpos int, answer bool) bool {
 	return answer
 }
 
-func checkrowallowed(board [4][4]int, newqueenrowpos int, answer bool) bool {
+func checkrowallowed(board [][]int, newqueenrowpos int, answer bool) bool {
 	qcount := 0
 
 	//check all coulmns for new queen row position
@@ -99,7 +101,7 @@ func checkrowallowed(board [4][4]int, newqueenrowpos int, answer bool) bool {
 	return answer
 }
 
-func placefourthqueen(b [4][4]int) {
+func placefourthqueen(b [][]int) {
 
 	for r4 := 0; r4 < 4; r4++ {
 		//place queen on column 4
@@ -115,10 +117,11 @@ func placefourthqueen(b [4][4]int) {
 
 }
 
-func placethirdqueen(b [4][4]int) {
+func placethirdqueen(b [][]int) {
 
 	for r3 := 0; r3 < 4; r3++ {
 		//place queen on column 3
+		//fmt.Println(fourspaces2, fourspaces2, "Placing 3rd Queen on ", r3, " - ", 1)
 		b[r3][2] = 1
 
 		if allowed(b, r3, 2) {
@@ -130,10 +133,11 @@ func placethirdqueen(b [4][4]int) {
 
 }
 
-func placesecondqueen(board [4][4]int) {
+func placesecondqueen(board [][]int) {
 
 	for r := 0; r < len(board); r++ {
 		//place q on column 2
+		fmt.Println(fourspaces, "Placing 2nd Queen on ", r, " - ", 1)
 		board[r][1] = 1
 		if allowed(board, r, 1) {
 
@@ -151,10 +155,13 @@ func Givefourqueensposition() {
 
 	N := 4
 
-	var board = [4][4]int{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}
-
 	for r := 0; r < N; r++ {
 		//place q on col 1
+		var board = [][]int{{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}
+		fmt.Println("********")
+		printboard(board)
+
+		fmt.Println("Placing 1st Queen on ", r, " - ", 0)
 		board[r][0] = 1
 		placesecondqueen(board)
 		board[r][0] = 0
